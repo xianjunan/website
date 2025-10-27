@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TetrisBackground } from "@/components/tetris-background";
+import { Leaderboard } from "@/components/leaderboard";
 
 export default function Home() {
   return (
@@ -84,6 +85,15 @@ export default function Home() {
                   Tetris
                 </a>
               </div>
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-lg border-4 border-yellow-300 bg-yellow-100 shadow-[inset_-4px_-4px_0px_rgba(0,0,0,0.1),inset_4px_4px_0px_rgba(255,255,255,0.5)] animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
+            <CardHeader className="text-center">
+              <CardTitle className="text-2xl text-yellow-900">Leaderboard</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Leaderboard />
             </CardContent>
           </Card>
         </div>
