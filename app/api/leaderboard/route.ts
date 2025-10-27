@@ -7,8 +7,13 @@ export async function GET() {
       'SELECT name, created_at FROM leaderboard ORDER BY created_at DESC LIMIT 10'
     );
     return NextResponse.json(result.rows);
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch leaderboard' }, { status: 500 });
+  } catch (error: any) {
+    console.error('Database error:', error);
+    return NextResponse.json({ 
+      error: 'Failed to fetch leaderboard',
+      details: error.message,
+      hasEnv: !!process.env.DATABASE_URL
+    }, { status: 500 });
   }
 }
 
