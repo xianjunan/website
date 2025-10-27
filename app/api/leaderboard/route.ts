@@ -20,7 +20,8 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const { name } = await request.json();
-    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
+    const forwarded = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
+    const ip = forwarded.split(',')[0].trim();
     
     const countResult = await pool.query(
       'SELECT COUNT(*) FROM leaderboard WHERE ip_address = $1',
