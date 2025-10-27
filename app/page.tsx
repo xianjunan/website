@@ -17,10 +17,18 @@ export default function Home() {
             <CardContent>
               <div className="flex gap-4">
                 <a
-                  href="https://www.linkedin.com/in/jun-an-a4a6771bb/"
+                  href="https://junan-resume.s3.amazonaws.com/resume0924.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-full bg-slate-900 px-6 py-3 text-sm font-medium text-white transition-all hover:bg-slate-700 hover:scale-105 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-200"
+                >
+                  Resume
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/jun-an-a4a6771bb/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-slate-300 px-6 py-3 text-sm font-medium transition-all hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
                 >
                   LinkedIn
                 </a>
