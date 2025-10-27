@@ -33,7 +33,7 @@ export default function Home() {
                   LinkedIn
                 </a>
                 <a
-                  href="mailto:contact@example.com"
+                  href="mailto:anxianjun0302@gmail.com"
                   className="rounded-full border border-slate-300 px-6 py-3 text-sm font-medium transition-all hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-800"
                 >
                   Contact
@@ -48,8 +48,8 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                Passionate software engineer with expertise in building modern web applications.
-                Focused on creating elegant solutions to complex problems.
+                Graduated from the University of Chicago with a degree in Computational and Applied 
+                Mathematics. Experienced in Computer Science, Mathematics, and Statistics. 
               </p>
             </CardContent>
           </Card>
