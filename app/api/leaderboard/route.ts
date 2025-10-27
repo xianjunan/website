@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 import pool from '@/lib/db';
+import { Filter } from 'bad-words';
+
+const filter = new Filter();
 
 export async function GET() {
   try {
@@ -20,6 +23,11 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const { name } = await request.json();
+    
+    if (filter.isProfane(name)) {
+      return NextResponse.json({ error: 'Inappropriate name detected' }, { status: 400 });
+    }
+    
     const forwarded = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
     const ip = forwarded.split(',')[0].trim();
     
@@ -28,8 +36,8 @@ export async function POST(request: Request) {
       [ip]
     );
     
-    if (parseInt(countResult.rows[0].count) >= 1) {
-      return NextResponse.json({ error: 'You have already submitted to the leaderboard', ip }, { status: 429 });
+    if (parseInt(countResult.rows[0].count) >= 2) {
+      return NextResponse.json({ error: 'Maximum submissions reached (2 per IP)', ip }, { status: 429 });
     }
     
     await pool.query(

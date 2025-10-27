@@ -40,8 +40,13 @@ export function Leaderboard() {
       body: JSON.stringify({ name: name.trim() })
     });
 
+    if (response.status === 400) {
+      alert('Inappropriate name detected. Please use a different name.');
+      return;
+    }
+
     if (response.status === 429) {
-      alert('You have already submitted to the leaderboard');
+      alert('Maximum submissions reached (2 per IP address)');
       setShowPopup(false);
       return;
     }
