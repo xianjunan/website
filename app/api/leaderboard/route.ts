@@ -28,15 +28,16 @@ export async function POST(request: Request) {
     );
     
     if (parseInt(countResult.rows[0].count) >= 1) {
-      return NextResponse.json({ error: 'You have already submitted to the leaderboard' }, { status: 429 });
+      return NextResponse.json({ error: 'You have already submitted to the leaderboard', ip }, { status: 429 });
     }
     
     await pool.query(
       'INSERT INTO leaderboard (name, ip_address) VALUES ($1, $2)',
       [name, ip]
     );
-    return NextResponse.json({ success: true });
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to add entry' }, { status: 500 });
+    return NextResponse.json({ success: true, ip });
+  } catch (error: any) {
+    console.error('POST error:', error);
+    return NextResponse.json({ error: 'Failed to add entry', details: error.message }, { status: 500 });
   }
 }
