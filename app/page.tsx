@@ -25,7 +25,7 @@ export default function Home() {
             <CardContent>
               <div className="flex justify-center gap-4">
                 <a
-                  href="https://junan-resume.s3.amazonaws.com/resume0924.pdf"
+                  href="https://junan-resume.s3.us-east-2.amazonaws.com/XIanJunAn_resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded border-4 border-orange-700 bg-orange-500 px-6 py-3 text-sm font-medium text-white shadow-[inset_-4px_-4px_0px_rgba(0,0,0,0.3),inset_4px_4px_0px_rgba(255,255,255,0.3)] transition-all hover:scale-105"
